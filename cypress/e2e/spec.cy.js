@@ -1,3 +1,6 @@
+import LoginPage from "../pageObjects/wiki.page"
+import Signin from "../pageObjects/Signin.page"
+
 describe('New tests pack. First cypress Homework', () => {
   it('Base test from cypress', () => {
     cy.visit('https://example.cypress.io')
@@ -22,5 +25,21 @@ describe('New tests pack. First cypress Homework', () => {
   it('3dots is visible', () => {
     cy.visit('https://en.wikipedia.org/wiki/Main_Page')
     cy.get('#vector-user-links-dropdown-checkbox').click({ force: true })
+  })
+
+  it('Go to English wiki page', () => {
+    const enWiki = new LoginPage()
+    enWiki.goToEnglishPage()
+    enWiki.CheckEnglishPage()
+  })
+
+  it('Check elements on Login page for English wiki', () => {
+    const Signpage = new Signin()
+    Signpage.SigninElementsisVisible()
+  })
+
+  it('Add login & password in fields for Login page', () => {
+    const Signpage = new Signin()
+    Signpage.AddDatainFields()
   })
 })
